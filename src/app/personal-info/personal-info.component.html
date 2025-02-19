@@ -1,0 +1,245 @@
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card shadow-lg p-4 bg-white rounded" style="max-width: 1000px; width: 120%;">
+
+        <!-- Card Header -->
+        <!-- Optional card header here if needed -->
+
+        <!-- Card Body -->
+        <div class="card-body">
+            <form [formGroup]="form">
+
+                <!-- Basic Information Section -->
+                <div class="section-header">
+                    <h4 class="fw-bold">Basic Information</h4>
+                </div>
+                <hr>
+                <div class="row g-3" formGroupName="personalDetails">
+
+                    <!-- First Name -->
+                    <div class="col-md-6">
+                        <label for="firstname" class="form-label fw-bold">First Name*</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-person"></i></span>
+                            <input type="text" id="firstname" class="form-control" formControlName="firstname"
+                                placeholder="Enter first name" required>
+                        </div>
+
+                        <!-- Error message for the firstname field -->
+                        <app-error-message [control]="form.get('personalDetails.firstname')"></app-error-message>
+
+                    </div>
+
+                    <!-- Middle Initial -->
+                    <div class="col-md-6">
+                        <label for="mi" class="form-label fw-bold">Middle Initial</label>
+                        <input type="text" id="mi" class="form-control" formControlName="mi"
+                            placeholder="Middle Name/Initial">
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="col-md-6">
+                        <label for="lastname" class="form-label fw-bold">Last Name*</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                            <input type="text" id="lastname" class="form-control" formControlName="lastname"
+                                placeholder="Enter last name" required>
+                        </div>
+
+                        <!-- Error message for the lastname field -->
+                        <app-error-message [control]="form.get('personalDetails.lastname')"></app-error-message>
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div class="col-md-6">
+                        <div class="">
+                            <label for="dob" class="form-label fw-bold">Date of Birth*</label>
+                            <input type="date" id="dob" class="form-control" formControlName="dob" required>
+                        </div>
+                        <!-- Error message for the dob field -->
+                        <app-error-message [control]="form.get('personalDetails.dob')"></app-error-message>
+                    </div>
+                    <!-- Gender -->
+                    <div class="col-md-6">
+                        <label for="gender" class="form-label fw-bold">Gender</label>
+                        <select id="gender" class="form-select" formControlName="gender">
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Non-binary">Non-binary</option>
+                            <option value="Prefer not to say">Prefer not to say</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- Contact Information Section -->
+                <div class="section-header mt-4">
+                    <h4 class="fw-bold">Contact Information</h4>
+                </div>
+                <hr>
+                <div class="row g-3" formGroupName="personalDetails">
+
+                    <!-- Phone -->
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label fw-bold">Phone*</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                            <input type="text" id="phone" class="form-control" formControlName="phone"
+                                placeholder="Enter phone number" maxlength="10" required>
+                        </div>
+                        <!-- Error message for the phone field -->
+                        <app-error-message [control]="form.get('personalDetails.phone')"></app-error-message>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <label for="email" class="form-label fw-bold">Email*</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="email" id="email" class="form-control" formControlName="email"
+                                placeholder="Enter email" required>
+                        </div>
+                        <!-- Error message for the phone field -->
+                        <app-error-message [control]="form.get('personalDetails.email')"></app-error-message>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label class="form-label fw-bold">Address*</label>
+                        <div formGroupName="address">
+                            <div class="row g-2">
+
+                                <!-- Street Address -->
+                                <div class="col-md-12">
+                                    <div class="">
+                                        <input type="text" class="form-control" formControlName="street"
+                                            placeholder="Street Address" required>
+                                    </div>
+                                    <!-- Error message for the street address field -->
+                                    <app-error-message
+                                        [control]="form.get('personalDetails.address.street')"></app-error-message>
+                                </div>
+
+                                <!-- Country -->
+                                <div class="col-md-6">
+                                    <div class="">
+                                        <label for="country" class="form-label fw-bold">Country*</label>
+                                        <select id="country" class="form-select" formControlName="country"
+                                            (change)="onCountryChange($event)">
+                                            <option value="" disabled selected>Select Country</option>
+                                            <option *ngFor="let country of countryList" [value]="country">{{ country }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <!-- Error message for the country address field -->
+                                    <app-error-message
+                                        [control]="form.get('personalDetails.address.country')"></app-error-message>
+                                </div>
+
+                                <!-- State -->
+                                <div class="col-md-6">
+                                    <div class="">
+                                        <label for="state" class="form-label fw-bold">State*</label>
+                                        <select id="state" class="form-select" formControlName="state"
+                                            (change)="onStateChange($event)">
+                                            <option value="" disabled selected>Select State</option>
+                                            <option *ngFor="let state of stateList" [value]="state">{{ state }}</option>
+                                        </select>
+                                    </div>
+                                    <!-- Error message for the state address field -->
+                                    <app-error-message
+                                        [control]="form.get('personalDetails.address.state')"></app-error-message>
+                                </div>
+
+                                <!-- City -->
+                                <div class="col-md-6">
+                                    <div class="">
+                                        <label for="city" class="form-label fw-bold">City*</label>
+                                        <select id="city" class="form-select" formControlName="city">
+                                            <option value="" disabled selected>Select City</option>
+                                            <option *ngFor="let city of cityList" [value]="city">{{ city }}</option>
+                                        </select>
+                                    </div>
+                                    <!-- Error message for the city address field -->
+                                    <app-error-message
+                                        [control]="form.get('personalDetails.address.city')"></app-error-message>
+                                </div>
+
+                                <!-- ZIP Code -->
+                                <div class="col-md-4">
+                                    <div class="">
+                                        <label for="city" class="form-label fw-bold">Zip Code*</label>
+                                        <input type="text" class="form-control" formControlName="zip"
+                                            placeholder="ZIP Code" maxlength="6" required>
+                                    </div>
+                                    <!-- Error message for the zip code field -->
+                                    <app-error-message
+                                        [control]="form.get('personalDetails.address.zip')"></app-error-message>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Legal Information Section -->
+                <div class="section-header mt-4">
+                    <h4 class="fw-bold">Legal Information</h4>
+                </div>
+                <hr>
+                <div class="row g-3" formGroupName="personalDetails">
+
+                    <!-- Nationality -->
+                    <div class="col-md-6">
+                        <div class="">
+                            <label for="nationality" class="form-label fw-bold">Nationality*</label>
+                            <select id="nationality" class="form-select" formControlName="nationality">
+                                <option value="" disabled selected>Select Nationality</option>
+                                <option *ngFor="let country of countryList" [value]="country">{{ country }}</option>
+                            </select>
+                        </div>
+                        <!-- Error message for the nationality field -->
+                        <app-error-message [control]="form.get('personalDetails.nationality')"></app-error-message>
+                    </div>
+
+                    <!-- Passport Number -->
+                    <div class="col-md-6">
+                        <div class="">
+                            <label for="passport" class="form-label fw-bold">Passport Number*</label>
+                            <input type="text" id="passport" class="form-control" formControlName="passport"
+                                placeholder="Enter passport number" required>
+                        </div>
+                        <!-- Error message for the poassport field -->
+                        <app-error-message [control]="form.get('personalDetails.passport')"></app-error-message>
+                    </div>
+
+                    <!-- SSN -->
+                    <div class="col-md-6">
+                        <label for="ssn" class="form-label fw-bold">SSN (Optional)</label>
+                        <input type="text" id="ssn" class="form-control" formControlName="ssn" placeholder="Enter SSN">
+                    </div>
+
+                    <!-- Profile/Website -->
+                    <div class="col-md-6">
+                        <label for="link" class="form-label fw-bold">Social Media Profile</label>
+                        <input type="text" id="link" class="form-control" formControlName="link"
+                            placeholder="Enter your Twitter/Instagram/Facebook Profile">
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Card Footer with Next Button -->
+        <div class="" style="margin-top: 5%;">
+            <button type="button" class="btn btn-lg shadow-sm mb-0"
+                style="float: right; background-color: #D84B16; color: white; border: none; border-radius: 5px; padding: 10px 20px; display: flex; align-items: center;"
+                matStepperNext (click)="step1Submitted()">
+                Next <i class="bi bi-arrow-right" style="margin-left: 10px;"></i>
+            </button>
+
+        </div>
+
+    </div>
+</div>

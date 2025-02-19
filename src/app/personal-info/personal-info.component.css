@@ -1,0 +1,10 @@
+.mat-step-icon .mat-step-icon-state-number .mat-step-icon-selected {
+    background-color: #D84B16 !important; /* Mars-themed color for selected step icon */
+    color: white; /* Text color for the selected icon */
+    border: 2px solid #D84B16; /* Add border to match Mars color */
+  }
+  .mat-step-icon-state-edit {
+background-color: #D84B16 !important; /* Mars-themed color for selected step icon */
+    color: white; /* Text color for the selected icon */
+    border: 2px solid #D84B16; /* Add border to match Mars color */
+  }

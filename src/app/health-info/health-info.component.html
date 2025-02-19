@@ -1,0 +1,201 @@
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card shadow-lg p-4 bg-white rounded" style="max-width: 1000px; width: 120%;">
+
+        <!-- Card Header -->
+        <!-- Optional card header here if needed -->
+
+        <!-- Card Body -->
+        <div class="card-body">
+
+            <form [formGroup]="form">
+
+                <div class="row g-3" style="margin-top: 2%;" formGroupName="healthDetails">
+
+                    <div class="section-header" style="margin-top: 2%;">
+                        <h4 class="fw-bold">Physical Data</h4>
+                    </div>
+                    <hr>
+
+                    <!-- Height -->
+                    <div class="col-md-6">
+                        <div class="">
+                            <label for="height" class="form-label fw-bold">Height (in cms)*</label>
+                            <input type="text" id="height" class="form-control" formControlName="height"
+                                placeholder="Enter height (e.g., 163)" required>
+                        </div>
+                        <!-- Error message for the height field -->
+                        <app-error-message [control]="form.get('healthDetails.height')"></app-error-message>
+                    </div>
+
+                    <!-- Weight -->
+                    <div class="col-md-6">
+                        <div class="">
+                            <label for="weight" class="form-label fw-bold">Weight (in kgs)*</label>
+                            <input type="text" id="weight" class="form-control" formControlName="weight"
+                                placeholder="Enter weight (kg)" required>
+                        </div>
+                        <!-- Error message for the weight field -->
+                        <app-error-message [control]="form.get('healthDetails.weight')"></app-error-message>
+                    </div>
+
+                    <!-- Blood Type -->
+                    <div class="col-md-6">
+                        <div class="">
+                            <label for="bloodType" class="form-label fw-bold">Blood Type*</label>
+                            <select id="bloodType" class="form-select" formControlName="bloodType" required>
+                                <option value="" disabled selected>Select Blood Type</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                        </div>
+                        <!-- Error message for the blood type field -->
+                        <app-error-message [control]="form.get('healthDetails.bloodType')"></app-error-message>
+                    </div>
+
+
+
+                    <!-- Physical Fitness -->
+                    <div class="col-md-6">
+                        <div class="">
+                            <label for="physicalFitness" class="form-label fw-bold">Physical Fitness Level</label>
+                            <select id="physicalFitness" class="form-select" formControlName="physicalFitness">
+                                <option value="" disabled selected>Select Fitness Level</option>
+                                <option value="Excellent">Excellent</option>
+                                <option value="Good">Good</option>
+                                <option value="Average">Average</option>
+                                <option value="Needs Improvement">Needs Improvement</option>
+                            </select>
+                        </div>
+                        <!-- Error message for the physicalFitness field -->
+                        <app-error-message [control]="form.get('healthDetails.physicalFitness')"></app-error-message>
+                    </div>
+
+                    <div class="section-header" style="margin-top: 5%;">
+                        <h4 class="fw-bold">Allergies & Vaccinations</h4>
+                    </div>
+                    <hr>
+
+                    <!-- Allergies -->
+                    <div class="col-md-6">
+                        <div class="">
+                            <label for="allergies" class="form-label fw-bold">Allergies*</label>
+                            <input type="text" id="allergies" class="form-control" formControlName="allergies"
+                                placeholder="List allergies (if any)" required>
+                        </div>
+                        <!-- Error message for the allergies field -->
+                        <app-error-message [control]="form.get('healthDetails.allergies')"></app-error-message>
+                    </div>
+
+
+
+                    <!-- Vaccinations -->
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Vaccinations</label>
+
+                        <!-- Checkboxes for predefined vaccinations -->
+                        <div *ngFor="let vaccine of vaccinationOptions">
+                            <input type="checkbox" [value]="vaccine" (change)="onVaccineChange($event)"
+                                [checked]="isSelected(vaccine)"> {{ vaccine }}
+                        </div>
+
+
+
+                        <!-- Error message for vaccinations field -->
+                        <app-error-message [control]="form.get('healthDetails.vaccinations')"></app-error-message>
+                    </div>
+
+
+
+                    <div class="section-header" style="margin-top: 5%;">
+                        <h4 class="fw-bold">Health Related Data</h4>
+                    </div>
+                    <hr>
+
+                    <!-- Health Conditions -->
+                    <div class="col-md-6">
+                        <div class="">
+                            <label for="healthConditions" class="form-label fw-bold">Health Conditions*</label>
+                            <input type="text" id="healthConditions" class="form-control"
+                                formControlName="healthConditions" placeholder="Any chronic conditions?" required>
+                        </div>
+                        <!-- Error message for the healthConditions field -->
+                        <app-error-message [control]="form.get('healthDetails.healthConditions')"></app-error-message>
+                    </div>
+
+                    <!-- Health Checkup -->
+                    <div class="col-md-6">
+                        <div class="">
+                            <label for="healthCheckup" class="form-label fw-bold">Last Medical Checkup*</label>
+                            <input type="date" id="healthCheckup" class="form-control" formControlName="healthCheckup"
+                                required>
+                        </div>
+                        <!-- Error message for the healthCheckup field -->
+                        <app-error-message [control]="form.get('healthDetails.healthCheckup')"></app-error-message>
+                    </div>
+
+                    <!-- Emergency Contact -->
+                    <div class="col-md-6">
+                        <div class="">
+                            <label for="emergencyContact" class="form-label fw-bold">Emergency Contact*</label>
+                            <input type="text" id="emergencyContact" class="form-control"
+                                formControlName="emergencyContact" placeholder="Enter Emergency Contact number"
+                                maxlength="10" required>
+
+                        </div>
+                        <!-- Error message for the emergencyContact field -->
+                        <app-error-message [control]="form.get('healthDetails.emergencyContact')"></app-error-message>
+                    </div>
+
+                    <div class="section-header" style="margin-top: 5%;">
+                        <h4 class="fw-bold">Other Details</h4>
+                    </div>
+                    <hr>
+
+                    <div class="col-md-6">
+                        <label for="otherHealthNotes" class="form-label fw-bold">Other Health-Related Notes</label>
+                        <textarea id="otherHealthNotes" class="form-control" formControlName="otherHealthNotes" rows="4"
+                            placeholder="Enter any other health-related notes"
+                            title="Please mention anything other than what has already been covered in the form"></textarea>
+                    </div>
+
+                    <!-- Error message for the other health-related notes field -->
+                    <app-error-message [control]="form.get('healthDetails.otherHealthNotes')"></app-error-message>
+
+
+
+                    <div class="" style="margin-top: 5%;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+
+                            <!-- Back Button -->
+                            <button type="button" 
+                                    class="btn btn-lg shadow-sm mb-0" 
+                                    style="background-color: #C14D3C; color: white; border: none; border-radius: 5px; padding: 10px 20px; display: flex; align-items: center;" 
+                                    matStepperPrevious>
+                                <i class="bi bi-arrow-left" style="margin-right: 10px;"></i> Back
+                            </button>
+                          
+                            <!-- Next Button -->
+                            <button type="button" 
+                                    class="btn btn-lg shadow-sm mb-0" 
+                                    style="background-color: #D84B16; color: white; border: none; border-radius: 5px; padding: 10px 20px; display: flex; align-items: center;" 
+                                    matStepperNext
+                                    (click)="step3Submitted()">
+                                Next <i class="bi bi-arrow-right" style="margin-left: 10px;"></i>
+                            </button>
+                          
+                          </div>
+                          
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

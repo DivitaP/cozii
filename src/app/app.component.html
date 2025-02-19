@@ -1,0 +1,104 @@
+<div class="full-screen-section">
+
+  <h1 class="typed-glow-text">Welcome to the Journey <br> of Mars Exploration</h1>
+
+  <h2 class="scroll-text" style="margin-top: 4%;">Scroll down to get started!</h2>
+  <a href="#registration"><span class="input-group-text"><i class="bi bi-arrow-down"></i></span></a>
+</div>
+
+<div id="registration" class="container d-flex justify-content-center mt-5">
+  <form id="form" [formGroup]="registrationForm">
+    <mat-horizontal-stepper #stepper linear class="custom-stepper">
+      <!-- Personal Details Step -->
+      <mat-step formGroupName="personalDetails" [stepControl]="registrationForm.get('personalDetails')!">
+        <ng-template matStepLabel>
+          <span class="step-label">Personal Details</span>
+        </ng-template>
+        <app-personal-info [form]="registrationForm"></app-personal-info>
+      </mat-step>
+
+      <!-- Travel Preferences Step -->
+      <mat-step formGroupName="travelDetails" [stepControl]="registrationForm.get('travelDetails')!">
+        <ng-template matStepLabel>
+          <span class="step-label">Travel Preferences</span>
+        </ng-template>
+        <app-travel-info [form]="registrationForm"></app-travel-info>
+      </mat-step>
+
+      <!-- Health Details Step -->
+      <mat-step formGroupName="healthDetails" [stepControl]="registrationForm.get('healthDetails')!">
+        <ng-template matStepLabel>
+          <span class="step-label">Health Details</span>
+        </ng-template>
+        <app-health-info [form]="registrationForm"></app-health-info>
+      </mat-step>
+
+      <!-- Review & Submit Step -->
+      <mat-step formGroupName="reviewSubmit">
+        <ng-template matStepLabel>
+          <span class="step-label">Review & Submit</span>
+        </ng-template>
+        <app-review-submit [form]="registrationForm"></app-review-submit>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+</div>
+
+<!-- Custom icon templates for a subtle look -->
+<ng-template matStepperIcon="number" let-index="index">
+  <div class="custom-step-icon subtle">
+    {{ index + 1 }}
+  </div>
+</ng-template>
+
+<ng-template matStepperIcon="done">
+  <div class="custom-step-icon subtle done">
+    <i class="bi bi-check"></i>
+  </div>
+</ng-template>
+
+
+<footer class=" text-light py-4 mt-5" style="background-color: #a93911;">
+  <div class="container">
+    <div class="row">
+      <!-- Company Info -->
+      <div class="col-md-4">
+        <h5 class="fw-bold">🚀 Space Travel Co.</h5>
+        <p>Your gateway to the stars. Experience intergalactic travel like never before!</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4">
+        <h5 class="fw-bold">🔗 Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">About Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Mission Packages</a></li>
+          <li><a href="#" class="text-light text-decoration-none">FAQs</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="col-md-4">
+        <h5 class="fw-bold">📋 Contact Us</h5>
+        <p><i class="bi bi-geo-alt"></i> 123 Spaceport Lane, Mars Colony 001</p>
+        <p><i class="bi bi-envelope"></i> contact#spacetravel.com</p>
+        <p><i class="bi bi-telephone"></i> +1 555-SPACE-01</p>
+
+        <!-- Social Media Icons -->
+        <div class="mt-3">
+          <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-4 border-light">
+
+    <div class="text-center">
+      <p class="mb-0">© 2025 Space Travel Co. | All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>

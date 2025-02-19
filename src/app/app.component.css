@@ -1,0 +1,138 @@
+/* Full-screen background section */
+.full-screen-section {
+    height: 100vh; /* Full height of viewport */
+    background: url('back.jpg') no-repeat center center/cover; /* Adjust the path */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+  }
+  
+  /* Typing effect with glowing color transition */
+  .typed-glow-text {
+    font-family: 'Impact';
+    font-size: 5rem;
+  font-weight: bold;
+  white-space: nowrap; /* Ensures the text doesn't wrap */
+  overflow: hidden; /* Hides the text that hasn't been typed yet */
+  animation: typing 4s infinite steps(30) forwards; /* Typing + glowing effect */
+  display: inline-block; /* Keeps text inline */
+  }
+
+  .scroll-text {
+    color: #ffffff;
+  font-weight: bold;
+  white-space: nowrap; /* Ensures the text doesn't wrap */
+  overflow: hidden; /* Hides the text that hasn't been typed yet */
+  display: inline-block; /* Keeps text inline */
+  }
+  
+  /* Typing effect */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%; /* Full text width */
+    }
+  }
+  
+  /* Glowing color transition effect */
+  @keyframes glow {
+    0% {
+      color: white; /* Starting color */
+      text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+    }
+    50% {
+      color: #ecb088; /* Pinkish glow effect */
+      text-shadow: 0 0 20px #ce00008b, 0 0 30px #8c1515, 0 0 40px #cb0101;
+    }
+    100% {
+      color: white; /* Returning to normal */
+      text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+    }
+  }
+  
+  /* Content below */
+  .content {
+    padding: 20px;
+    background-color: white;
+    color: black;
+  }
+/* Overall subtle stepper container styling */
+.custom-stepper .mat-horizontal-stepper-header-container {
+    background-color: #f8f9fa;  /* Very light gray */
+    border-radius: 6px;
+    padding: 8px;
+  }
+  
+  /* Styling for each step header */
+  .mat-horizontal-stepper-header {
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 200ms ease;
+  }
+  
+  /* Active step header with subtle highlight */
+  .mat-horizontal-stepper-header.mat-active {
+    background-color: #e9ecef;  /* Light gray-blue */
+  }
+  
+  /* Completed step header with a gentle tone */
+  .mat-horizontal-stepper-header.mat-completed {
+    background-color: #dee2e6;  /* Light gray */
+  }
+  
+  /* Custom subtle step icon styling */
+  .custom-step-icon.subtle {
+    background-color: #ffffff;   /* White background */
+    color: #6c757d;              /* Muted gray text */
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ced4da;   /* Light border */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  
+  /* Custom icon for completed steps */
+  .custom-step-icon.subtle.done {
+    background-color: #adb5bd;  /* Soft gray for completed */
+    color: #ffffff;
+  }
+
+  /* Apply styles to selected step icon using ::ng-deep */
+::ng-deep .mat-stepper-horizontal .mat-step-icon-selected {
+    background-color: #D84B16 !important; /* Mars-themed color for selected step icon */
+    color: white !important; /* White text color for the selected icon */
+    border: 2px solid #D84B16 !important; /* Add border to match Mars color */
+  }
+  
+  /* Unselected step icon - default state */
+  ::ng-deep .mat-stepper-horizontal .mat-step-icon {
+    background-color: #F7C5B5; /* Light orange background */
+    color: #D84B16; /* Mars red color for unselected icon */
+  }
+  
+  /* Optional: Hover effect for unselected icon */
+  ::ng-deep .mat-stepper-horizontal .mat-step-icon:hover {
+    background-color: #F7C5B5; /* Light orange background */
+    color: #D84B16; /* Mars red color */
+  }
+  
+  /* Optional: Style the number inside the icon */
+  ::ng-deep .mat-stepper-horizontal .mat-step-icon-number {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  
+
+  
+  

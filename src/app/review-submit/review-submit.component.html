@@ -1,0 +1,179 @@
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card shadow-lg p-4 bg-white rounded" style="max-width: 1000px; width: 120%;">
+
+        <!-- Card Header -->
+        <!-- Optional card header here if needed -->
+
+        <!-- Card Body -->
+        <div class="card-body">
+            <!-- Personal Details -->
+            <div class="card my-3 shadow-sm border-0 rounded">
+                <div class="card-header bg-primary text-white fw-bold">Personal Details</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>First Name:</strong> {{ form.get('personalDetails.firstname')?.value }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Middle Initial:</strong> {{ form.get('personalDetails.mi')?.value }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Last Name:</strong> {{ form.get('personalDetails.lastname')?.value }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Date of Birth:</strong> {{ form.get('personalDetails.dob')?.value }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Gender:</strong> {{ form.get('personalDetails.gender')?.value }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Email:</strong> {{ form.get('personalDetails.email')?.value }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Phone:</strong> {{ form.get('personalDetails.phone')?.value }}</p>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <p><strong>Street Address:</strong> {{ form.get('personalDetails.address.street')?.value
+                                    }}</p>
+                            </div>
+            
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Country:</strong> {{
+                                form.get('personalDetails.address.country')?.value }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>State:</strong> {{ form.get('personalDetails.address.state')?.value
+                                }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>City:</strong> {{ form.get('personalDetails.address.city')?.value
+                                }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Zip code:</strong> {{ form.get('personalDetails.address.zip')?.value }}
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Nationality:</strong> {{ form.get('personalDetails.nationality')?.value }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Passport:</strong> {{ form.get('personalDetails.passport')?.value }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>SSN:</strong> {{ form.get('personalDetails.ssn')?.value }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Social Media:</strong> {{ form.get('personalDetails.link')?.value }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Details -->
+        <div class="card my-3 shadow-sm border-0 rounded">
+            <div class="card-header bg-primary text-white fw-bold">Travel Preferences</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Astronaut Experience:</strong> {{
+                            form.get('travelDetails.astronautExperience')?.value }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Preferred Role:</strong> {{
+                            form.get('travelDetails.rolePreference')?.value }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Travel Companion Information:</strong> {{
+                            form.get('travelDetails.travelCompanions')?.value }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Preferred Spacecraft:</strong> {{
+                            form.get('travelDetails.preferredSpacecraft')?.value }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Class Preference:</strong> {{ form.get('travelDetails.classPreference')?.value }}
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Seat Preference:</strong> {{ form.get('travelDetails.seatPreference')?.value }}
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Preferred Flight Duration:</strong> {{ form.get('travelDetails.preferredFlightDuration')?.value }}
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Mission Duration:</strong> {{ form.get('travelDetails.missionDuration')?.value }}
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Preferred Launch Time:</strong> {{ form.get('travelDetails.preferredLaunchTime')?.value }}
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Other accommodation requests:</strong> {{ form.get('travelDetails.otherAccommodation')?.value }}
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Health Details -->
+        <div class="card my-3 shadow-sm border-0 rounded">
+            <div class="card-header bg-primary text-white fw-bold">Health Details</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Height:</strong> {{ form.get('healthDetails.height')?.value }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Weight:</strong> {{ form.get('healthDetails.weight')?.value }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Blood Type:</strong> {{ form.get('healthDetails.bloodType')?.value }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Physical Fitness Level:</strong> {{ form.get('healthDetails.physicalFitness')?.value }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Allergies:</strong> {{ form.get('healthDetails.allergies')?.value }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Vaccinations:</strong> {{ form.get('healthDetails.vaccinations')?.value }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Health Conditions:</strong> {{ form.get('healthDetails.healthConditions')?.value
+                            }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Last Medical Checkup:</strong> {{ form.get('healthDetails.healthCheckup')?.value
+                            }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Emergency Contact:</strong> {{ form.get('healthDetails.emergencyContact')?.value
+                            }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Other health details:</strong> {{ form.get('healthDetails.otherHealthNotes')?.value
+                            }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="text-center mt-5">
+            <button mat-button class="btn btn-secondary mx-2" style="float: left;" matStepperPrevious>
+                <i class="bi bi-pencil-square"></i> Edit Details
+            </button>
+            <button mat-button class="btn btn-success mx-2" style="float: right;" (click)="submitForm()">
+                <i class="bi bi-check-circle"></i> Confirm & Submit
+            </button>
+        </div>
+    </div>
+</div>
